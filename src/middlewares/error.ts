@@ -14,7 +14,7 @@ export default ():Middleware =>{
         try {
             await next();
             logResponse(ctx,startDate)
-        } catch (error) {
+        } catch (error:any) {
             if(error.status===401){
                 ctx.status = 401;
                 ctx.body = 'Protected resource, use Authorization header to get access\n';

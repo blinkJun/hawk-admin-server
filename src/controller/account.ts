@@ -88,4 +88,39 @@ export default class Index{
         const userAuthListCode = userAuthList.map(auth=>auth.authorize_key)
         ctx.success('获取成功！',userAuthListCode)
     }
+
+    @POST('/password')
+    @Validator({
+        oldPassword:{
+            type:'string',
+            required:true
+        },
+        newPassword:{
+            type:'string',
+            required:true
+        },
+        newPasswordAgain:{
+            type:'string',
+            required:true
+        }
+    })
+    async changePassword(ctx:Context):Promise<void>{
+        const {id} = ctx.state.user;
+        const userInfo = await AdminModel.findByPk(id)
+        const {oldPassword,newPassword,newPasswordAgain} = ctx.request.body as any
+        if(oldPassword!==userInfo?.password){
+            ctx.fail('旧密码不正确！')
+            return
+        }
+        if(newPassword!==newPasswordAgain){
+            ctx.fail('两次输入的新密码不相同！')
+            return 
+        }
+        await AdminModel.update({password:newPassword},{
+            where:{
+                id:id
+            }
+        })
+        ctx.success('更新成功！')
+    }
 }
