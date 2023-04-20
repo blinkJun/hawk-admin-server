@@ -2,7 +2,7 @@
  * @Author liangjun
  * @LastEditors liangjun
  * @Date 2021-01-25 21:25:46
- * @LastEditTime 2021-03-30 11:29:24
+ * @LastEditTime 2023-04-20 16:22:28
  * @Description 
  */
 import Koa from 'koa'
@@ -52,3 +52,5 @@ app.use(router.routes()).use(router.allowedMethods());
 
 // 启动
 app.listen(config.server.port,config.server.host)
+
+console.log(`app listen on: ${config.server.host}:${config.server.port}`)
