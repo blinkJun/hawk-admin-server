@@ -2,7 +2,7 @@
  * @Author liangjun
  * @LastEditors liangjun
  * @Date 2021-02-02 17:42:51
- * @LastEditTime 2023-04-17 18:17:39
+ * @LastEditTime 2023-04-25 13:57:56
  * @Description 开发环境配置
  */
 import {MysqlConfig,ServerConfig,JWTCofig,CorsConfig} from './index'
@@ -20,5 +20,5 @@ export const jwt:JWTCofig = {
 }
 
 export const cors:CorsConfig = {
-    whiteList:['http://localhost:5173']
+    whiteList:['http://localhost:5173','http://127.0.0.1:5173']
 }
