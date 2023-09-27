@@ -21,6 +21,8 @@
     npx sequelize-cli db:seed:all
     ```
 
+    > 可通过此方式运行对应环境的迁移：`npx cross-env NODE_ENV=test sequelize-cli db:seed:all`
+
 5. 启动项目：`npm run dev`
 
 > 如果前端项目启动后是以`ip`的形式查看页面，则需要进入`/src/config/config.development.ts`或对应的环境配置下配置`cors`，添加白名单，以解决前端跨域访问问题
