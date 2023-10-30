@@ -123,4 +123,15 @@ export default class Index{
         })
         ctx.success('更新成功！')
     }
+
+    @GET('/userinfo')
+    async getUserinfo(ctx:Context):Promise<void>{
+        const {id} = ctx.state.user;
+        const userInfo = await AdminModel.findByPk(id)
+        if(userInfo){
+            ctx.success('获取成功！',userInfo)
+        }else{
+            ctx.fail('无此用户信息')
+        }
+    }
 }

@@ -8,7 +8,7 @@ module.exports = {
         await queryInterface.bulkInsert(tableName, [
             {
                 parent_id: null,
-                name: 'admin-root',
+                name: '主系统',
                 created_at: new Date(),
                 updated_at: new Date()
             },
